@@ -1,0 +1,11 @@
+go.property("speed", 0)
+
+function init(self)
+	self.angle = math.random(0, 360)
+end
+
+function update(self, dt)
+	self.angle = self.angle + self.speed * dt
+	--go.set_rotation(vmath.quat_axis_angle(vmath.vector3(0, 0, 1), self.angle), "#sprite")
+	--go.set("#sprite", "rotation.z", self.angle)
+end

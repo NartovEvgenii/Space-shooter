@@ -1,0 +1,15 @@
+go.property("delay", 2)
+
+local function spawn_enemy()
+	local x = math.random(-150, 150)
+	local type = math.random(0, 1)
+	if type == 0 then
+		factory.create("#factory_large", vmath.vector3(x, 360, 0), vmath.quat_rotation_z(math.rad(180)))
+	else
+		factory.create("#factory_small", vmath.vector3(x, 360, 0), vmath.quat_rotation_z(math.rad(180)))
+	end
+end
+
+function init(self)
+	timer.delay(self.delay, true, spawn_enemy)
+end

@@ -1,0 +1,8 @@
+go.property("scale", 1)
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("spawn") then
+		local sender_position = go.get_position(sender)
+		factory.create("#factory", sender_position, nil, nil, self.scale)
+	end
+end

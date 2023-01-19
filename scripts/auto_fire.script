@@ -1,0 +1,14 @@
+go.property("delay", 0.1)
+go.property("factory_go", hash(""))
+go.property("parent_go", hash(""))
+go.property("factory_name", hash(""))
+
+
+local function spawn_bullet(self)
+	factory.create("#bullet_factory")
+end
+
+function init(self)
+	go.set_parent(go.get_id(), self.parent_go, true)
+	timer.delay(self.delay, true, spawn_bullet)
+end
